@@ -1,0 +1,100 @@
+package com.company;
+import java.util.Scanner;
+import java.util.Random;
+
+public class Rock_Paper_Scissor_Game {
+    public static void main(String[] args) {
+        Scanner sc= new Scanner(System.in);
+        Random rn= new Random();
+        int upperbound= 3;
+        int flag1=0;//user
+        int flag2=0;//computer
+        System.out.println("Follow the rules to play the game:");
+        System.out.println("0=Rock");
+        System.out.println("1=Paper");
+        System.out.println("2=Scissor");
+        for(int i=1;i<=5;i++)
+        {
+            System.out.println("Round "+i+" Starting");
+            System.out.println("Enter your move:");
+            int a= sc.nextInt();//User move
+            int b= rn.nextInt(upperbound);//Computer move
+            switch(b)
+            {
+                case 0-> System.out.println("The move of the computer is Rock");
+                case 1-> System.out.println("The move of the computer is Paper");
+                case 2-> System.out.println("The move of the computer is Scissor");
+                default-> System.out.println("ERROR...........");
+            }
+            switch(a)
+            {
+                case 0-> System.out.println("The move of the user is Rock");
+                case 1-> System.out.println("The move of the user is Paper");
+                case 2-> System.out.println("The move of the computer is Scissor");
+                default-> System.out.println("ERROR...........");
+            }
+            if(a==0 && b==0)
+            {
+                System.out.println("Round "+i+" is drawn");
+            }
+            else if(a==0 && b==1)
+            {
+                System.out.println("The computer has won Round "+i);
+                flag2++;
+            }
+            else if(a==0 && b==2)
+            {
+                System.out.println("You have won Round "+i);
+                flag1++;
+            }
+            else if(a==1 && b==0)
+            {
+                System.out.println("You have won Round "+i);
+                flag1++;
+            }
+            else if(a==1 && b==1)
+            {
+                System.out.println("Round "+i+" is drawn");
+            }
+            else if(a==1 && b==2)
+            {
+                System.out.println("The computer has won Round "+i);
+                flag2++;
+            }
+            else if(a==2 && b==0)
+            {
+                System.out.println("The computer has won Round "+i);
+                flag2++;
+            }
+            else if(a==2 && b==1)
+            {
+                System.out.println("You have won Round "+i);
+                flag1++;
+            }
+            else if(a==2 && b==2)
+            {
+                System.out.println("Round "+i+" is drawn");
+            }
+            else
+            {
+                System.out.println("ERROR...........");
+            }
+            if(flag1==3 || flag2==3)
+            {
+                break;
+            }
+        }
+        if(flag1==3)
+        {
+            System.out.println("YOU WON THE GAME...........");
+        }
+        else if(flag2==3)
+        {
+            System.out.println("THE COMPUTER WON THE GAME.............");
+        }
+        else
+        {
+            System.out.println("MATCH DRAWN.........");
+        }
+    }
+}
